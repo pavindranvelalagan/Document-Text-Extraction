@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 
 def analyze_cv_layout(pdf_path, dpi=200):
     with pdfplumber.open(pdf_path) as pdf:
-        page = pdf.pages
+        page = pdf.pages[0] #first page of the pdf only
         img = page.to_image(resolution=dpi)
         img.save("layout_analysis.png")
         pil_img = img.original
@@ -41,13 +41,13 @@ def find_gaps(hist, img_width,
     margin_px = int(W * margin_ignore_ratio)
     merge_px = int(W * merge_distance_ratio)
 
-    below = np.where(hist < thresh)
+    below = np.where(hist < thresh)[0]
     gaps = []
-    if len(below) == 0:
+    if below.size == 0:
         return gaps, thresh
 
-    start = below
-    prev = below
+    start = below[0]
+    prev = below[0]
     for x in below[1:]:
         if x == prev + 1:
             prev = x
@@ -167,7 +167,7 @@ def main():
 
     # Report column boxes for extraction (left then right)
     if chosen:
-        c = chosen['center']
+        c = chosen[0]['center'] #chosen is a list with one dict
         # convert pixel x to pdf coordinate x using ratio between image and pdf page width
         px_per_pt = W / page.width
         left_bbox_px = (0, 0, c, H)
@@ -185,7 +185,7 @@ def main():
 
         # Optional: immediate extraction preview
         with pdfplumber.open(pdf_path) as pdf:
-            p = pdf.pages
+            p = pdf.pages[0] #open first page only
             left_text = p.crop(left_bbox_pts).extract_text() or ""
             right_text = p.crop(right_bbox_pts).extract_text() or ""
         with open("extracted_left.txt", "w", encoding="utf-8") as f:
