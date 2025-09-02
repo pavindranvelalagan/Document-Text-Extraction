@@ -1,0 +1,473 @@
+DOCLAYOUT-YOLO CV TEXT EXTRACTION
+======================================================================
+Source: Sample1.pdf
+Total elements: 49
+======================================================================
+
+
+========================= PAGE 1 =========================
+
+📋 ELEMENT 17: CLASS_7
+   Confidence: 0.847
+   Characters: 65
+--------------------------------------------------
+HARSHA SAMPATH
+Contact details: harshasampathkg@gmail.com, +94(0)
+
+==================================================
+
+📋 ELEMENT 14: CLASS_9
+   Confidence: 0.877
+   Characters: 131
+--------------------------------------------------
+Contact details: harshasampathkg@gmail.com, +94(0) 76 97 87 765, hapurudeniya,
+wellandura, kahawatta. Portfolio | LinkedIn profile.
+
+==================================================
+
+📋 ELEMENT 20: CLASS_9
+   Confidence: 0.811
+   Characters: 484
+--------------------------------------------------
+xperienced software engineer with over a year of experience in crafting, developing,
+nd implementing dependable applications. Proficient in coding, debugging, and
+verseeing software systems in adherence to industry standards and best practices.
+ossessing adept problem-solving abilities, committed to delivering superior solutions
+ailored to meet client specifications. Strong teamwork and communication skills
+acilitate seamless collaboration and drive successful project deliveries.
+
+==================================================
+
+📋 ELEMENT 11: CLASS_7
+   Confidence: 0.881
+   Characters: 63
+--------------------------------------------------
+Software Engineer at Kapruka.com
+Developed and maintained cross
+
+==================================================
+
+📋 ELEMENT 28: CLASS_7
+   Confidence: 0.547
+   Characters: 28
+--------------------------------------------------
+Jan2024 - July 2024
+ns using
+
+==================================================
+
+📋 ELEMENT 34: CLASS_7
+   Confidence: 0.503
+   Characters: 28
+--------------------------------------------------
+Jan2024 - July 2024
+ns using
+
+==================================================
+
+📋 ELEMENT 18: CLASS_7
+   Confidence: 0.814
+   Characters: 15
+--------------------------------------------------
+WORK
+EXPERIENCE
+
+==================================================
+
+📋 ELEMENT 12: TABLE
+   Confidence: 0.880
+   Characters: 215
+--------------------------------------------------
+Developed and maintained cross-platform mobile applications using
+Flutter, ensuring smooth functionality on both Android and iOS platforms.
+Utilized native Android functionalities to improve the performance and user
+
+==================================================
+
+📋 ELEMENT 24: TABLE
+   Confidence: 0.571
+   Characters: 252
+--------------------------------------------------
+Flutter, ensuring smooth functionality on both Android and iOS platforms.
+Utilized native Android functionalities to improve the performance and user
+experience of the applications.
+Managed the complete iOS app launch process on the App Store, adhering
+
+==================================================
+
+📋 ELEMENT 7: TABLE
+   Confidence: 0.913
+   Characters: 178
+--------------------------------------------------
+Utilized native Android functionalities to improve the performance and user
+experience of the applications.
+Managed the complete iOS app launch process on the App Store, adhering
+
+==================================================
+
+📋 ELEMENT 3: TABLE
+   Confidence: 0.933
+   Characters: 177
+--------------------------------------------------
+Managed the complete iOS app launch process on the App Store, adhering
+to Apple's guidelines and standards.
+Implemented Firebase Authentication and Push Notifications to elevate
+
+==================================================
+
+📋 ELEMENT 1: TABLE
+   Confidence: 0.944
+   Characters: 100
+--------------------------------------------------
+Implemented Firebase Authentication and Push Notifications to elevate
+user interaction and security.
+
+==================================================
+
+📋 ELEMENT 31: CLASS_7
+   Confidence: 0.536
+   Characters: 20
+--------------------------------------------------
+Feb 2023 - July 2023
+
+==================================================
+
+📋 ELEMENT 32: CLASS_7
+   Confidence: 0.517
+   Characters: 25
+--------------------------------------------------
+Internship at Kapruka.com
+
+==================================================
+
+📋 ELEMENT 27: CLASS_7
+   Confidence: 0.550
+   Characters: 25
+--------------------------------------------------
+Internship at Kapruka.com
+
+==================================================
+
+📋 ELEMENT 25: CLASS_7
+   Confidence: 0.553
+   Characters: 25
+--------------------------------------------------
+Internship at Kapruka.com
+
+==================================================
+
+📋 ELEMENT 29: CLASS_7
+   Confidence: 0.546
+   Characters: 25
+--------------------------------------------------
+Internship at Kapruka.com
+
+==================================================
+
+📋 ELEMENT 4: TABLE
+   Confidence: 0.921
+   Characters: 190
+--------------------------------------------------
+Utilized Angular and React to create responsive and interactive user
+interfaces, improving user experience on various devices.
+Implemented scalable backend services with Spring Boot to boost
+
+==================================================
+
+📋 ELEMENT 2: TABLE
+   Confidence: 0.938
+   Characters: 169
+--------------------------------------------------
+Implemented scalable backend services with Spring Boot to boost
+application performance and reliability.
+Developed mobile applications for Android and iOS, incorporating
+
+==================================================
+
+📋 ELEMENT 5: TABLE
+   Confidence: 0.921
+   Characters: 179
+--------------------------------------------------
+Developed mobile applications for Android and iOS, incorporating
+responsive design for a uniform user experience.
+Mastered UI/UX principles and RESTful API development, prioritizi
+
+==================================================
+
+📋 ELEMENT 6: TABLE
+   Confidence: 0.917
+   Characters: 115
+--------------------------------------------------
+Mastered UI/UX principles and RESTful API development, prioritizing clean,
+efficient coding and smooth integration.
+
+==================================================
+
+📋 ELEMENT 23: CLASS_9
+   Confidence: 0.641
+   Characters: 75
+--------------------------------------------------
+University of Moratuwa(undergraduate)
+Major in Software engineer principles
+
+==================================================
+
+📋 ELEMENT 21: TABLE
+   Confidence: 0.785
+   Characters: 55
+--------------------------------------------------
+Major in Software engineer principles.
+Final cGPA: 3.34
+
+==================================================
+
+📋 ELEMENT 33: TABLE
+   Confidence: 0.516
+   Characters: 16
+--------------------------------------------------
+Final cGPA: 3.34
+
+==================================================
+
+📋 ELEMENT 30: TABLE
+   Confidence: 0.539
+   Characters: 16
+--------------------------------------------------
+Final cGPA: 3.34
+
+==================================================
+
+📋 ELEMENT 26: CLASS_7
+   Confidence: 0.552
+   Characters: 35
+--------------------------------------------------
+GCE Advanced Level (Science stream)
+
+==================================================
+
+📋 ELEMENT 22: CLASS_9
+   Confidence: 0.671
+   Characters: 65
+--------------------------------------------------
+Gankanda Central Collage,Pelmadulla
+Results ABB , Z-Score- 1.6365
+
+==================================================
+
+📋 ELEMENT 19: TABLE
+   Confidence: 0.814
+   Characters: 29
+--------------------------------------------------
+Results ABB , Z-Score- 1.6365
+
+==================================================
+
+📋 ELEMENT 13: TABLE
+   Confidence: 0.879
+   Characters: 33
+--------------------------------------------------
+Problem solving.
+Customer service
+
+==================================================
+
+📋 ELEMENT 8: TABLE
+   Confidence: 0.910
+   Characters: 65
+--------------------------------------------------
+Organizational and time
+management skills.
+Corporate communicatio
+
+==================================================
+
+📋 ELEMENT 15: TABLE
+   Confidence: 0.873
+   Characters: 38
+--------------------------------------------------
+Customer service.
+Attention to details
+
+==================================================
+
+📋 ELEMENT 16: TABLE
+   Confidence: 0.850
+   Characters: 39
+--------------------------------------------------
+Attention to details.
+Fluent in English
+
+==================================================
+
+📋 ELEMENT 9: TABLE
+   Confidence: 0.904
+   Characters: 57
+--------------------------------------------------
+Corporate communications.
+Technical Skills - fluter/ Andr
+
+==================================================
+
+📋 ELEMENT 10: TABLE
+   Confidence: 0.885
+   Characters: 17
+--------------------------------------------------
+Fluent in English
+
+==================================================
+
+📋 ELEMENT 0: TABLE
+   Confidence: 0.951
+   Characters: 98
+--------------------------------------------------
+Technical Skills - fluter/ Android
+Native/ Angular/ React/ Spring/
+Node/ MySql/ MsSql/ PostgreySql
+
+==================================================
+
+
+========================= PAGE 2 =========================
+
+📋 ELEMENT 10: CLASS_9
+   Confidence: 0.605
+   Characters: 132
+--------------------------------------------------
+Deep Learning Approaches for Detecting Common Skin Diseases Using Digital
+Image Processing - Final Year Research Project - Completed
+
+==================================================
+
+📋 ELEMENT 11: CLASS_7
+   Confidence: 0.561
+   Characters: 132
+--------------------------------------------------
+Deep Learning Approaches for Detecting Common Skin Diseases Using Digital
+Image Processing - Final Year Research Project - Completed
+
+==================================================
+
+📋 ELEMENT 13: CLASS_9
+   Confidence: 0.531
+   Characters: 259
+--------------------------------------------------
+Demonstrated expertise in machine learning and image analysis by utilizing
+deep learning models to automate skin disease detection via digital image
+processing in a collaborative research endeavor.
+Tech stack- React , Python , Colab , NodeJs Role- team leader
+
+==================================================
+
+📋 ELEMENT 3: TABLE
+   Confidence: 0.865
+   Characters: 259
+--------------------------------------------------
+Demonstrated expertise in machine learning and image analysis by utilizing
+deep learning models to automate skin disease detection via digital image
+processing in a collaborative research endeavor.
+Tech stack- React , Python , Colab , NodeJs Role- team leader
+
+==================================================
+
+📋 ELEMENT 2: CLASS_9
+   Confidence: 0.896
+   Characters: 79
+--------------------------------------------------
+Learning Management System(LMS) webapplication- ARIMAC Lanka project-
+completed
+
+==================================================
+
+📋 ELEMENT 1: TABLE
+   Confidence: 0.949
+   Characters: 333
+--------------------------------------------------
+Utilized a web-based Learning Management System (LMS) to effectively
+distribute educational content, facilitating the seamless creation, delivery,
+and management of content by instructors. Improved tracking and
+assessment features simplify monitoring student progress.
+Tech stack- React , Node.js , PostgreSQL & AWS Role- team member
+
+==================================================
+
+📋 ELEMENT 7: CLASS_7
+   Confidence: 0.822
+   Characters: 30
+--------------------------------------------------
+Cake Selling APP - In Progress
+
+==================================================
+
+📋 ELEMENT 8: TABLE
+   Confidence: 0.757
+   Characters: 175
+--------------------------------------------------
+The Android app was created for bakers to organize their products. It is built
+on native Android technology.
+Tech stack - Android Studio, Java, Android SQLite Role- Individual
+
+==================================================
+
+📋 ELEMENT 5: TABLE
+   Confidence: 0.863
+   Characters: 196
+--------------------------------------------------
+The purpose of this web application is to streamline cleaning operations and
+orders for an Australian cleaning services company, enhancing their
+efficiency.
+Tech stack - Wordpress Role- Individual
+
+==================================================
+
+📋 ELEMENT 12: CLASS_9
+   Confidence: 0.553
+   Characters: 79
+--------------------------------------------------
+Tech stack - Wordpress Role- Individual
+rt Hotel Room - Completed (Hardware Pro
+
+==================================================
+
+📋 ELEMENT 6: CLASS_9
+   Confidence: 0.839
+   Characters: 93
+--------------------------------------------------
+Smart Hotel Room - Completed (Hardware Project)
+The project focused on a fresh hotel room con
+
+==================================================
+
+📋 ELEMENT 0: TABLE
+   Confidence: 0.951
+   Characters: 259
+--------------------------------------------------
+The project focused on a fresh hotel room concept that introduces a new
+interface to the hotel industry, offering customers a more luxurious and
+comfortable stay. Simultaneously, owners will profit from room automation.
+Tech stack- C language Role- Individual
+
+==================================================
+
+📋 ELEMENT 9: CLASS_9
+   Confidence: 0.712
+   Characters: 105
+--------------------------------------------------
+Participated in Hackermoral (Coding competition)
+organized by INTECS, IT Faculty, University of Moratuwa.
+
+==================================================
+
+📋 ELEMENT 4: CLASS_9
+   Confidence: 0.864
+   Characters: 204
+--------------------------------------------------
+Mr.Yasas Sri Wickramasinghe
+Lecturer|Former Lead Software Engineer
+Department of Information Technology,
+University of Moratuwa,
+Katubedda, Moratuwa ,Sri Lanka
+Mobile: +94 768 666 603
+Email: yasasw@uom.lk
+
+==================================================
+

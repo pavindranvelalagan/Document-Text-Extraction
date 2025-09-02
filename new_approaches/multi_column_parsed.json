@@ -1,0 +1,108 @@
+{
+  "personal_info": {
+    "contact": {
+      "emails": [
+        "harshasampathkg@gmail.com"
+      ],
+      "phones": [
+        "+94(0) 76 97 87 765"
+      ],
+      "linkedin": [
+        "LinkedIn profile"
+      ]
+    },
+    "name": "HARSHA SAMPATH"
+  },
+  "skills": [
+    "React",
+    "Spring Boot",
+    "Flutter",
+    "iOS",
+    "Android",
+    "Angular"
+  ],
+  "education": {
+    "degrees": [
+      "mobile applications for Android and iOS",
+      "mooth integration",
+      "mmunications.\nTechnical Skills",
+      "MMARY\nExperienced software engineer with over a year of experience in crafting",
+      "GCE Advanced Level",
+      "mprove the performance and user\n experience of the applications",
+      "mproving user experience on various devices",
+      "ble backend services with Spring Boot to boost\n application performance and reliability",
+      "bile applications using\n Flutter",
+      "mation Technology\n\nAug 2018\nGCE Advanced Level",
+      "me\n management skills",
+      "boration and drive successful project deliveries",
+      "mobile applications using\n Flutter",
+      "madulla\n\nResults ABB",
+      "best practice\ns",
+      "both Android and iOS platforms",
+      "mooth functionality on both Android and iOS platforms",
+      "mer service",
+      "base Authentication and Push Notifications to elevate\n user interaction and security",
+      "mplemented scalable backend services with Spring Boot to boost\n application performance and reliability",
+      "BB",
+      "mw ork and communicat ion sk\nills facilitate seamless collaboration and drive successful project deliveries",
+      "ms in adherence to industry standards and best practice\ns",
+      "Bachelor of Information Technology\n\nAug 2018\nGCE Advanced Level",
+      "Managed the complete iOS app launch process on the App Store",
+      "MPATH\n\nContact details",
+      "Major in Software engineer principles",
+      "blem solving",
+      "mmitted to delivering superior soluti\nons tailo red  to m eet cli ent specificatio ns",
+      "maintained cross",
+      "mplementing  dependable  applications",
+      "ble  applications",
+      "mplemented Firebase Authentication and Push Notifications to elevate\n user interaction and security",
+      "Mastered UI",
+      "bile applications for Android and iOS"
+    ],
+    "institutions": [
+      "WORK\nEXPERIENCE\n\nEDUCATION\n\nUniversity",
+      "University of Moratuwa"
+    ],
+    "gpa": [
+      "3.34"
+    ]
+  },
+  "experience": {
+    "total_years": [
+      "a"
+    ],
+    "positions": [
+      "July 2024\nSoftware Engineer",
+      "Internship"
+    ],
+    "companies": [
+      "Kapruka.com\n\nDeveloped and maintained cross",
+      "Kapruka.com\n\nUtilized Angular and React to create responsive and interactive user\n interfaces"
+    ]
+  },
+  "projects": [],
+  "column_analysis": [
+    {
+      "column": "Column_1",
+      "sections_found": [
+        "harsha_sampath",
+        "education",
+        "skills"
+      ],
+      "text_length": 656
+    },
+    {
+      "column": "Column_2",
+      "sections_found": [
+        "summary",
+        "experience"
+      ],
+      "text_length": 1731
+    }
+  ],
+  "extraction_metadata": {
+    "extraction_successful": true,
+    "parser_version": "multi_column_cv_parser_v3.0",
+    "method": "coordinate_based_column_detection"
+  }
+}

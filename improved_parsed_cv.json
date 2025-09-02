@@ -1,0 +1,145 @@
+{
+  "personal_info": {
+    "name": "HARSHA SAMPATH",
+    "contact": {
+      "emails": [
+        "yasasw@uom.lk",
+        "harshasampathkg@gmail.com"
+      ],
+      "phones": [
+        "+94 71 2207030",
+        "+94(0) 76 97 87 765",
+        "+94 11 2650301"
+      ],
+      "linkedin": [
+        "LinkedIn profile",
+        "LinkedIn profile"
+      ],
+      "address": ""
+    }
+  },
+  "skills": [
+    "Spring",
+    "Angular",
+    "MySQL",
+    "React",
+    "Android"
+  ],
+  "education": {
+    "degrees": [
+      "blem solving",
+      "base Authentication and Push Notifications to elevate\n user interaction and security",
+      "mmunications.\nTechnical Skills",
+      "best practice\ns",
+      "mplementing  dependable  applications",
+      "by utilizing\n deep learning models to automate skin disease detection via digital imag\ne processing in a collaborative research endeavor",
+      "mprove the performance and user\n experience of the applications",
+      "Moratuwa.\n2022\nParticipated in Graphic competition\n organized by FITMOMENTS",
+      "BB",
+      "MAC Lanka project",
+      "by INTECS",
+      "madulla\nResults ABB",
+      "mproving user experience on various devices",
+      "mart Hotel Room",
+      "Moratuwa",
+      "mplemented scalable backend services with Spring Boot to boost\n application performance and reliability",
+      "mmitted to delivering superior soluti\nons tailo red  to m eet cli ent specificatio ns",
+      "Moratuwa.\n2021\nParticipated in Hackermoral",
+      "GCE Advanced Level",
+      "bile applications using\n Flutter",
+      "mer service",
+      "mooth integration",
+      "mprove d trackin g a\nnd assessment features simplify monitoring student progress",
+      "mpleted",
+      "by AIESEC of University of Moratuwa",
+      "mation Technology\nUniversity of Moratuwa",
+      "mer Lead Software Engineer\n  Department of Information Technology",
+      "mmon Skin Diseases Using Digital\nImage Processing",
+      "ble backend services with Spring Boot to boost\n application performance and reliability",
+      "bile",
+      "Moratuwa\n  Katubedda",
+      "ber\nCake Selling APP",
+      "based Learning Management System",
+      "MPATH\nKEY SKILLS\nOrganizational and time\n management skills",
+      "Moratuwa\n2021\n  Dr",
+      "ble stay",
+      "ms in adherence to industry standards and best practice\ns",
+      "managemen t o f conten t b y instructors",
+      "Advanced Level",
+      "mpleted\nDemonstrated expertise in machine learning and image analysis by utilizing\n deep learning models to automate skin disease detection via digital imag\ne processing in a collaborative research endeavor",
+      "mw ork and communicat ion sk\nills facilitate seamless collaboration and drive successful project deliveries",
+      "Managed the complete iOS app launch process on the App Store",
+      "masinghe\n  Lecturer",
+      "bute  educational  content",
+      "ble  applications",
+      "by FITMOMENTS",
+      "built\n on native Android technology",
+      "mation.\n        Tech stack",
+      "m.lk",
+      "mobile applications using\n Flutter",
+      "both Android and iOS platforms",
+      "boration and drive successful project deliveries",
+      "mers  a  more  luxurious  an\nd comfortable stay",
+      "bile applications for Android and iOS",
+      "MMARY\nExperienced software engineer with over a year of experience in crafting",
+      "maintained cross",
+      "Mobile",
+      "Mastered UI",
+      "Management System",
+      "mpleted\nUtilized a web",
+      "mplemented Firebase Authentication and Push Notifications to elevate\n user interaction and security",
+      "mless  creation",
+      "ment of Information Technology\n  Faculty of Information Technology",
+      "member\nCake Selling APP",
+      "Bachelor of Information Technology\nUniversity of Moratuwa",
+      "bakers to organize their products",
+      "mpleted\nThe purpose of this web application is to streamline cleaning operations and\n orders  for  an  Australian  cleaning  services  company",
+      "mobile applications for Android and iOS",
+      "Major in Software engineer principles",
+      "mooth functionality on both Android and iOS platforms"
+    ],
+    "institutions": [
+      "University of Moratuwa",
+      "University of Moratuwa\n2021\n  Dr",
+      "Finalist of ThinkWave \norganized by AIESEC of University",
+      "University",
+      "IT Faculty University",
+      "Dec 2024\nBachelor of Information Technology\nUniversity",
+      "University of Moratuwa\n  Katubedda"
+    ],
+    "gpa": [
+      "3.34"
+    ]
+  },
+  "experience": {
+    "years_of_experience": [
+      "a"
+    ],
+    "positions": [
+      "Kapruka.com\nDeveloped and maintained cross",
+      [
+        " July 2023 \nInternship",
+        "Kapruka.com\nUtilized Angular and React to create responsive and interactive user\n interfaces"
+      ],
+      [
+        " July 2024\nSoftware Engineer",
+        "Kapruka.com\nDeveloped and maintained cross"
+      ]
+    ]
+  },
+  "projects": [
+    "Deep Learning Approaches for Detecting Common Skin Diseases Using Digital Image Processing - Final Year Research Project - Completed Demonstrated expertise in machine learning and image analysis by utilizing deep learning models to automate skin disease detection via digital imag e processing in a collaborative research endeavor.",
+    "Tech stack- React , Python , Colab , NodeJs  Role- team leader",
+    "Learning Management System(LMS) webapplication- ARIMAC Lanka project- completed Utilized a web-based Learning Management System (LMS) to effectively distribute  educational  content,  facilitating  the  seamless  creation,  delivery , an d managemen t o f conten t b y instructors . Improve d trackin g a nd assessment features simplify monitoring student progress.",
+    "Tech stack- React , Node.js , PostgreSQL & AWS  Role- team member",
+    "Cake Selling APP - In Progress The Android app was created for bakers to organize their products. It is built on native Android technology."
+  ],
+  "file_info": {
+    "filename": "Sample1.pdf",
+    "text_length": 4789
+  },
+  "extraction_metadata": {
+    "extraction_successful": true,
+    "parser_version": "improved_cv_parser_v2.0"
+  }
+}

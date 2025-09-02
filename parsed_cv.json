@@ -1,0 +1,112 @@
+{
+  "file_info": {
+    "filename": "Sample1.pdf",
+    "file_size": 81866,
+    "text_length": 4789
+  },
+  "contact_information": {
+    "emails": [
+      "harshasampathkg@gmail.com",
+      "yasasw@uom.lk"
+    ],
+    "phones": [
+      "+94 11 2650301",
+      "+94 768 666 603",
+      "+94 71 2207030"
+    ],
+    "linkedin": [],
+    "github": []
+  },
+  "skills": [
+    "Python",
+    "React",
+    "Angular",
+    "Sql",
+    "Git",
+    "Machine Learning",
+    "Postgresql",
+    "Mysql",
+    "Java",
+    "Aws",
+    "Nodejs"
+  ],
+  "education": [
+    "based",
+    "Moratuwa",
+    "both",
+    "Bachelor",
+    "maintained",
+    "bakers",
+    "managemen",
+    "management",
+    "Boot",
+    "b y",
+    "m eet",
+    "Mobile",
+    "undergraduate",
+    "best",
+    "Management",
+    "monitoring",
+    "Major",
+    "boost",
+    "Managed",
+    "machine",
+    "Mr",
+    "member",
+    "Mastered",
+    "backend",
+    "models",
+    "mobile",
+    "by",
+    "MsSql",
+    "built",
+    "more",
+    "MySql"
+  ],
+  "experience_years": [],
+  "named_entities": {
+    "persons": [
+      "Gankanda Central Collage",
+      "Yasas Sri Wickramasinghe",
+      "Tech",
+      "the App Store",
+      "Push Notifications",
+      "Cake Selling",
+      "Sri Lanka",
+      "Java",
+      "Lochandaka Ranathunga"
+    ],
+    "organizations": [
+      "Lecturer\n  Department of Information Technology\n  Faculty of Information Technology",
+      "Technical Skills",
+      "ARIMAC",
+      "FITMOMENTS",
+      "Android",
+      "Implemented Firebase Authentication",
+      "Bachelor of Information Technology\nUniversity of Moratuwa(undergraduate",
+      "Software",
+      "IT Faculty University of Moratuwa",
+      "Learning Management System(LMS",
+      "IT Faculty, University of Moratuwa",
+      "API",
+      "Apple",
+      "PostgreSQL & AWS",
+      "LinkedIn",
+      "Learning Management System",
+      "Kapruka.com",
+      "LMS",
+      "AIESEC of University of Moratuwa"
+    ],
+    "locations": [
+      "Moratuwa",
+      "Python",
+      "Node.js",
+      "React",
+      "Colab"
+    ]
+  },
+  "extraction_metadata": {
+    "extraction_successful": true,
+    "parser_version": "modern_cv_parser_v1.1_fixed"
+  }
+}

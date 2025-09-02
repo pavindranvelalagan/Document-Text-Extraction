@@ -1,0 +1,92 @@
+{
+  "name": "",
+  "contact_details": {
+    "emails": [
+      "yasasw@uom.lk"
+    ],
+    "phones": [
+      "+94768666603",
+      "+94112650301",
+      "+94712207030"
+    ]
+  },
+  "professional_summary": "",
+  "education": [],
+  "work_experience": [
+    {
+      "content": "HARSHA SAMPATH\nContact details: harshasampathkg@gmail.com, +94(0) 76 97 87 765, hapurudeniya,\nwellandura, kahawatta. Portfolio | LinkedIn profile.\nSUMMARY Experienced software engineer with over a year of experience in crafting, developing,\nand implementing dependable applications. Proficient in coding, debugging, and\noverseeing software systems in adherence to industry standards and best practices.\nPossessing adept problem-solving abilities, committed to delivering superior solutions\ntailored to meet client specifications. Strong teamwork and communication skills\nfacilitate seamless collaboration and drive successful project deliveries.\nWORK Software Engineer at Kapruka.com Jan2024 - July 2024\nEXPERIENCE Developed and maintained cross-platform mobile applications using\nFlutter, ensuring smooth functionality on both Android and iOS platforms.\nUtilized native Android functionalities to improve the performance and user\nexperience of the applications.\nManaged the complete iOS app launch process on the App Store, adhering\nto Apple's guidelines and standards.\nImplemented Firebase Authentication and Push Notifications to elevate\nuser interaction and security.\nInternship at Kapruka.com Feb 2023 - July 2023\nUtilized Angular and React to create responsive and interactive user\ninterfaces, improving user experience on various devices.\nImplemented scalable backend services with Spring Boot to boost\napplication performance and reliability.\nDeveloped mobile applications for Android and iOS, incorporating\nresponsive design for a uniform user experience.\nMastered UI/UX principles and RESTful API development, prioritizing clean,\nefficient coding and smooth integration.\nEDUCATION Bachelor of Information Technology Jan 2019 - Dec 2024\nUniversity of Moratuwa(undergraduate)\nMajor in Software engineer principles.\nFinal cGPA: 3.34\nGCE Advanced Level (Science stream) Aug 2018\nGankanda Central Collage,Pelmadulla\nResults ABB , Z-Score- 1.6365\nKEY SKILLS Organizational and time Problem solving.\nmanagement skills. Customer service.\nCorporate communications. Attention to details.\nTechnical Skills - fluter/ Android Fluent in English\nNative/ Angular/ React/ Spring/\nNode/ MySql/ MsSql/ PostgreySql",
+      "entities": [
+        {
+          "ORG": [
+            "H",
+            "ARSHA SAMPAT",
+            "I",
+            "Kapruka",
+            "com",
+            "A",
+            "pp",
+            "Apple",
+            "Kap",
+            "a",
+            "Spring Boot"
+          ],
+          "MISC": [
+            "Android",
+            "iOS",
+            "Store"
+          ]
+        }
+      ]
+    }
+  ],
+  "skills": [],
+  "technical_skills": [],
+  "projects": [],
+  "certifications": [
+    {
+      "content": "PROJECTS Deep Learning Approaches for Detecting Common Skin Diseases Using Digital\nImage Processing - Final Year Research Project - Completed\nDemonstrated expertise in machine learning and image analysis by utilizing\ndeep learning models to automate skin disease detection via digital image\nprocessing in a collaborative research endeavor.\nTech stack- React , Python , Colab , NodeJs Role- team leader\nLearning Management System(LMS) webapplication- ARIMAC Lanka project-\ncompleted\nUtilized a web-based Learning Management System (LMS) to effectively\ndistribute educational content, facilitating the seamless creation, delivery,\nand management of content by instructors. Improved tracking and\nassessment features simplify monitoring student progress.\nTech stack- React , Node.js , PostgreSQL & AWS Role- team member\nCake Selling APP - In Progress\nThe Android app was created for bakers to organize their products. It is built\non native Android technology.\nTech stack - Android Studio, Java, Android SQLite Role- Individual\nCleaning Service Web- completed\nThe purpose of this web application is to streamline cleaning operations and\norders for an Australian cleaning services company, enhancing their\nefficiency.\nTech stack - Wordpress Role- Individual\nSmart Hotel Room - Completed (Hardware Project)\nThe project focused on a fresh hotel room concept that introduces a new\ninterface to the hotel industry, offering customers a more luxurious and\ncomfortable stay. Simultaneously, owners will profit from room automation.\nTech stack- C language Role- Individual\nCERTIFICATES Semi-Finalist of ThinkWave\n2021\norganized by AIESEC of University of Moratuwa.\nParticipated in Hackermoral (Coding competition)\n2022\norganized by INTECS, IT Faculty, University of Moratuwa.\nParticipated in Graphic competition\n2021\norganized by FITMOMENTS, IT Faculty University of Moratuwa\nREFEREES Dr. Lochandaka Ranathunga Mr.Yasas Sri Wickramasinghe\nSenior Lecturer Lecturer|Former Lead Software Engineer\nDepartment of Information Technology Department of Information Technology,\nFaculty of Information Technology, University of Moratuwa,\nUniversity of Moratuwa Katubedda, Moratuwa ,Sri Lanka\nKatubedda, Moratuwa ,Sri Lanka Mobile: +94 768 666 603\nTel: +94 11 2650301 -Ext 8102 Email: yasasw@uom.lk\nMobile : +94 71 2207030",
+      "entities": [
+        {
+          "MISC": [
+            "Learning",
+            "Skin Disease",
+            "Digital Image Process",
+            "Python",
+            "Management System",
+            "Android",
+            "Android Studio",
+            "Java",
+            "Australian",
+            "Ha"
+          ],
+          "ORG": [
+            "Cola",
+            "No",
+            "J",
+            "ARIMAC Lanka",
+            "Post",
+            "QL",
+            "A",
+            "ThinkWave",
+            "AIESEC",
+            "University of Moratuwa",
+            "INTECS",
+            "IT Faculty",
+            "University of Morat",
+            "wa",
+            "University",
+            "Technology"
+          ],
+          "LOC": [
+            "u",
+            "Sri",
+            "Sri Lanka"
+          ]
+        }
+      ]
+    }
+  ],
+  "languages": [],
+  "awards": [],
+  "references": []
+}

@@ -1,0 +1,40 @@
+STRUCTURED CV EXTRACTION RESULTS
+============================================================
+
+👤 Name: Um
+
+📞 Contact Details:
+   Email: ['janodumayanga@gmail.com']
+   Phone: ['+94710560492']
+   LinkedIn: linkedin.com/in/janodumayanga
+
+📄 Professional Summary:
+
+
+🎯 Skills:
+   • Colombo 07
+   • Data Structures And Algorithms
+   • Functional Programming
+   • Agile Software
+   • Last Updated On July 15Th
+   • Unreal Engine
+   • Git
+   • Javascript
+   • Php
+   • Godot Engine June 2023 – Oct. 2023
+   • Python
+   • Project In Ucsc)
+   • Experience
+   • Bitbucket
+   • Vs Code June 2023 – Nov. 2023
+   • Royal College
+   • Java
+   • Css
+   • Sri Lanka
+   • Html/Css
+   • ... and 44 more
+
+💼 Work Experience: 0 sections found
+🎓 Education: 0 sections found
+🚀 Projects: 0 sections found
+📜 Certifications: 0 sections found

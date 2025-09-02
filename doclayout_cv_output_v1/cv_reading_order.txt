@@ -1,0 +1,167 @@
+HARSHA SAMPATH
+Contact details: harshasampathkg@gmail.com, +94(0)
+
+Contact details: harshasampathkg@gmail.com, +94(0) 76 97 87 765, hapurudeniya,
+wellandura, kahawatta. Portfolio | LinkedIn profile.
+
+xperienced software engineer with over a year of experience in crafting, developing,
+nd implementing dependable applications. Proficient in coding, debugging, and
+verseeing software systems in adherence to industry standards and best practices.
+ossessing adept problem-solving abilities, committed to delivering superior solutions
+ailored to meet client specifications. Strong teamwork and communication skills
+acilitate seamless collaboration and drive successful project deliveries.
+
+Software Engineer at Kapruka.com
+Developed and maintained cross
+
+Jan2024 - July 2024
+ns using
+
+Jan2024 - July 2024
+ns using
+
+WORK
+EXPERIENCE
+
+Developed and maintained cross-platform mobile applications using
+Flutter, ensuring smooth functionality on both Android and iOS platforms.
+Utilized native Android functionalities to improve the performance and user
+
+Flutter, ensuring smooth functionality on both Android and iOS platforms.
+Utilized native Android functionalities to improve the performance and user
+experience of the applications.
+Managed the complete iOS app launch process on the App Store, adhering
+
+Utilized native Android functionalities to improve the performance and user
+experience of the applications.
+Managed the complete iOS app launch process on the App Store, adhering
+
+Managed the complete iOS app launch process on the App Store, adhering
+to Apple's guidelines and standards.
+Implemented Firebase Authentication and Push Notifications to elevate
+
+Implemented Firebase Authentication and Push Notifications to elevate
+user interaction and security.
+
+Feb 2023 - July 2023
+
+Internship at Kapruka.com
+
+Internship at Kapruka.com
+
+Internship at Kapruka.com
+
+Internship at Kapruka.com
+
+Utilized Angular and React to create responsive and interactive user
+interfaces, improving user experience on various devices.
+Implemented scalable backend services with Spring Boot to boost
+
+Implemented scalable backend services with Spring Boot to boost
+application performance and reliability.
+Developed mobile applications for Android and iOS, incorporating
+
+Developed mobile applications for Android and iOS, incorporating
+responsive design for a uniform user experience.
+Mastered UI/UX principles and RESTful API development, prioritizi
+
+Mastered UI/UX principles and RESTful API development, prioritizing clean,
+efficient coding and smooth integration.
+
+University of Moratuwa(undergraduate)
+Major in Software engineer principles
+
+Major in Software engineer principles.
+Final cGPA: 3.34
+
+Final cGPA: 3.34
+
+Final cGPA: 3.34
+
+GCE Advanced Level (Science stream)
+
+Gankanda Central Collage,Pelmadulla
+Results ABB , Z-Score- 1.6365
+
+Results ABB , Z-Score- 1.6365
+
+Problem solving.
+Customer service
+
+Organizational and time
+management skills.
+Corporate communicatio
+
+Customer service.
+Attention to details
+
+Attention to details.
+Fluent in English
+
+Corporate communications.
+Technical Skills - fluter/ Andr
+
+Fluent in English
+
+Technical Skills - fluter/ Android
+Native/ Angular/ React/ Spring/
+Node/ MySql/ MsSql/ PostgreySql
+
+Deep Learning Approaches for Detecting Common Skin Diseases Using Digital
+Image Processing - Final Year Research Project - Completed
+
+Deep Learning Approaches for Detecting Common Skin Diseases Using Digital
+Image Processing - Final Year Research Project - Completed
+
+Demonstrated expertise in machine learning and image analysis by utilizing
+deep learning models to automate skin disease detection via digital image
+processing in a collaborative research endeavor.
+Tech stack- React , Python , Colab , NodeJs Role- team leader
+
+Demonstrated expertise in machine learning and image analysis by utilizing
+deep learning models to automate skin disease detection via digital image
+processing in a collaborative research endeavor.
+Tech stack- React , Python , Colab , NodeJs Role- team leader
+
+Learning Management System(LMS) webapplication- ARIMAC Lanka project-
+completed
+
+Utilized a web-based Learning Management System (LMS) to effectively
+distribute educational content, facilitating the seamless creation, delivery,
+and management of content by instructors. Improved tracking and
+assessment features simplify monitoring student progress.
+Tech stack- React , Node.js , PostgreSQL & AWS Role- team member
+
+Cake Selling APP - In Progress
+
+The Android app was created for bakers to organize their products. It is built
+on native Android technology.
+Tech stack - Android Studio, Java, Android SQLite Role- Individual
+
+The purpose of this web application is to streamline cleaning operations and
+orders for an Australian cleaning services company, enhancing their
+efficiency.
+Tech stack - Wordpress Role- Individual
+
+Tech stack - Wordpress Role- Individual
+rt Hotel Room - Completed (Hardware Pro
+
+Smart Hotel Room - Completed (Hardware Project)
+The project focused on a fresh hotel room con
+
+The project focused on a fresh hotel room concept that introduces a new
+interface to the hotel industry, offering customers a more luxurious and
+comfortable stay. Simultaneously, owners will profit from room automation.
+Tech stack- C language Role- Individual
+
+Participated in Hackermoral (Coding competition)
+organized by INTECS, IT Faculty, University of Moratuwa.
+
+Mr.Yasas Sri Wickramasinghe
+Lecturer|Former Lead Software Engineer
+Department of Information Technology,
+University of Moratuwa,
+Katubedda, Moratuwa ,Sri Lanka
+Mobile: +94 768 666 603
+Email: yasasw@uom.lk
+
