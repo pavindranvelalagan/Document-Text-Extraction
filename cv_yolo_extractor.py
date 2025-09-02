@@ -13,7 +13,7 @@ import pandas as pd
 class DocumentYOLOExtractor:
     def __init__(self):
         """Initialize with document-specific YOLO model"""
-        print("🚀 Initializing Document Layout YOLO Extractor")
+        print("Initializing Document Layout YOLO Extractor")
         print("=" * 60)
         
         # Load the best available model
@@ -24,14 +24,14 @@ class DocumentYOLOExtractor:
         
         # Try YOLOv8 segmentation (best available option)
         try:
-            print("🔄 Loading YOLOv8 segmentation model...")
+            print("Loading YOLOv8 segmentation model...")
             # v1.0: model = YOLO("yolov8n-seg.pt")  # Segmentation version
             model = YOLO("nakamura196/yolov8-ndl-layout")
-            print("✅ Loaded YOLOv8 segmentation model")
+            print("Loaded YOLOv8 segmentation model")
             return model
             
         except Exception as e:
-            print(f"❌ Model loading failed: {e}")
+            print(f"Model loading failed: {e}")
             raise
     
     def pdf_to_images(self, pdf_path, dpi=200):
@@ -41,7 +41,7 @@ class DocumentYOLOExtractor:
         WHY: YOLO works on images, not PDFs
         HOW: Use pdfplumber to convert each page to high-resolution image
         """
-        print(f"\n📄 Converting PDF to images: {pdf_path}")
+        print(f"\nConverting PDF to images: {pdf_path}")
         print("=" * 50)
         
         if not os.path.exists(pdf_path):
@@ -53,10 +53,10 @@ class DocumentYOLOExtractor:
         try:
             with pdfplumber.open(pdf_path) as pdf:
                 total_pages = len(pdf.pages)
-                print(f"📊 Total pages: {total_pages}")
+                print(f"Total pages: {total_pages}")
                 
                 for page_num, page in enumerate(pdf.pages):
-                    print(f"🔄 Processing page {page_num + 1}/{total_pages}")
+                    print(f"Processing page {page_num + 1}/{total_pages}")
                     
                     # Convert page to image
                     img = page.to_image(resolution=dpi)
@@ -74,18 +74,18 @@ class DocumentYOLOExtractor:
                         'dpi': dpi
                     })
                     
-                    print(f"   ✅ Page {page_num + 1}: {opencv_img.shape[1]}x{opencv_img.shape[0]} pixels")
+                    print(f"Page {page_num + 1}: {opencv_img.shape[1]}x{opencv_img.shape[0]} pixels")
         
         except Exception as e:
-            print(f"❌ Error converting PDF: {e}")
+            print(f"Error converting PDF: {e}")
             raise
         
-        print(f"✅ Successfully converted {len(images)} pages to images")
+        print(f"Successfully converted {len(images)} pages to images")
         return images, page_info
     
     def detect_with_custom_classes(self, image, confidence_threshold=0.2):
         """Enhanced detection with document-aware post-processing"""
-        print(f"🔍 Running document-aware detection...")
+        print(f"Running document-aware detection...")
         
         # Run base YOLO detection
         results = self.model(image, conf=confidence_threshold, verbose=False)
@@ -103,7 +103,7 @@ class DocumentYOLOExtractor:
                 
                 # If we get a large detection covering most of the page, split it
                 if self.is_large_detection(box, image.shape):
-                    print(f"📦 Large '{class_name}' detection found - splitting into sections")
+                    print(f"Large '{class_name}' detection found - splitting into sections")
                     sub_detections = self.split_large_detection(box, image)
                     detections.extend(sub_detections)
                 else:
@@ -118,10 +118,10 @@ class DocumentYOLOExtractor:
         
         # If no detections or only very few, create default sections
         if len(detections) == 0:
-            print("⚠️ No detections found - creating default sections")
+            print("No detections found - creating default sections")
             detections = self.create_default_sections(image.shape)
         
-        print(f"✅ Found {len(detections)} document regions")
+        print(f"Found {len(detections)} document regions")
         
         # Sort by reading order (top-to-bottom, left-to-right)
         detections.sort(key=lambda x: (x['bbox'][1], x['bbox'][0]))
@@ -136,12 +136,12 @@ class DocumentYOLOExtractor:
         
         # If detection covers more than 70% of page, it's too large
         coverage = detection_area / total_area
-        print(f"   📊 Detection covers {coverage*100:.1f}% of page")
+        print(f"Detection covers {coverage*100:.1f}% of page")
         return coverage > 0.7
     
     def split_large_detection(self, large_bbox, image):
         """Split large detection into logical sections using computer vision"""
-        print("🔪 Splitting large detection into sections...")
+        print("Splitting large detection into sections...")
         
         x1, y1, x2, y2 = large_bbox
         
@@ -211,7 +211,7 @@ class DocumentYOLOExtractor:
             
             sub_detections.append(sub_detection)
         
-        print(f"🔪 Split into {len(sub_detections)} sections")
+        print(f"Split into {len(sub_detections)} sections")
         return sub_detections
     
     def create_default_sections(self, img_shape):
@@ -263,10 +263,10 @@ class DocumentYOLOExtractor:
     
     def extract_text_from_regions(self, pdf_path, detections, page_info, page_num):
         """Extract text from each detected region"""
-        print(f"📝 Extracting text from {len(detections)} regions")
+        print(f"Extracting text from {len(detections)} regions")
         
         if page_num >= len(page_info):
-            print(f"❌ Page info not available for page {page_num}")
+            print(f"Page info not available for page {page_num}")
             return []
         
         page_data = page_info[page_num]
@@ -319,15 +319,15 @@ class DocumentYOLOExtractor:
                         
                         region_texts.append(region_info)
                         
-                        print(f"   📄 Region {i} ({detection['class_name']}): {len(text)} chars")
+                        print(f"Region {i} ({detection['class_name']}): {len(text)} chars")
                         
                     except Exception as e:
-                        print(f"   ❌ Error extracting region {i}: {e}")
+                        print(f"Error extracting region {i}: {e}")
                         
         except Exception as e:
-            print(f"❌ Error in text extraction: {e}")
+            print(f"Error in text extraction: {e}")
         
-        print(f"✅ Successfully extracted text from {len(region_texts)} regions")
+        print(f"Successfully extracted text from {len(region_texts)} regions")
         return region_texts
     
     def visualize_enhanced(self, image, detections, page_num, save_path):
@@ -376,16 +376,16 @@ class DocumentYOLOExtractor:
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         plt.close()
         
-        print(f"✅ Saved enhanced visualization: {save_path}")
+        print(f"Saved enhanced visualization: {save_path}")
     
     def save_enhanced_results(self, extractions, output_dir, pdf_path):
         """Save extraction results in multiple formats"""
         
-        print(f"\n💾 Saving results to {output_dir}")
+        print(f"\nSaving results to {output_dir}")
         print("=" * 50)
         
         if not extractions:
-            print("❌ No extractions to save")
+            print("No extractions to save")
             return
         
         # Save detailed text file
@@ -414,24 +414,24 @@ class DocumentYOLOExtractor:
             for extraction in extractions:
                 f.write(extraction['text'] + "\n")
         
-        print(f"✅ Saved detailed results: {txt_path}")
-        print(f"✅ Saved combined text: {combined_path}")
+        print(f"Saved detailed results: {txt_path}")
+        print(f"Saved combined text: {combined_path}")
         
         # Print summary statistics
         total_chars = sum(e['char_count'] for e in extractions)
         pages = len(set(e['page'] for e in extractions))
         classes = set(e['class_name'] for e in extractions)
         
-        print(f"\n📊 EXTRACTION SUMMARY:")
-        print(f"   📄 Pages processed: {pages}")
-        print(f"   📝 Total characters: {total_chars:,}")
-        print(f"   🎯 Detected classes: {', '.join(classes)}")
-        print(f"   📦 Average confidence: {np.mean([e['confidence'] for e in extractions]):.3f}")
+        print(f"\nEXTRACTION SUMMARY:")
+        print(f"   Pages processed: {pages}")
+        print(f"   Total characters: {total_chars:,}")
+        print(f"   Detected classes: {', '.join(classes)}")
+        print(f"   Average confidence: {np.mean([e['confidence'] for e in extractions]):.3f}")
     
     def process_cv_enhanced(self, pdf_path, output_dir="enhanced_yolo_output"):
         """Enhanced processing with better section detection"""
         
-        print("🚀 ENHANCED DOCUMENT YOLO PROCESSING")
+        print("ENHANCED DOCUMENT YOLO PROCESSING")
         print("=" * 60)
         
         os.makedirs(output_dir, exist_ok=True)
@@ -463,11 +463,11 @@ class DocumentYOLOExtractor:
         return all_extractions
 
 def main():
-    print("🚀 ENHANCED DOCUMENT YOLO EXTRACTOR")
+    print("ENHANCED DOCUMENT YOLO EXTRACTOR")
     print("=" * 60)
-    print("✅ Splits large detections into logical sections")
-    print("✅ Document-aware classification")  
-    print("✅ Better section detection")
+    print("Splits large detections into logical sections")
+    print("Document-aware classification")  
+    print("Better section detection")
     print("=" * 60)
     
     pdf_path = input("Enter path to your CV PDF: ").strip()
@@ -480,16 +480,16 @@ def main():
         extractions = extractor.process_cv_enhanced(pdf_path)
         
         if extractions:
-            print(f"\n🎉 SUCCESS! Found {len(extractions)} document sections")
-            print("📁 Check 'enhanced_yolo_output' for results:")
+            print(f"\n SUCCESS! Found {len(extractions)} document sections")
+            print("Check 'enhanced_yolo_output' for results:")
             print("   • enhanced_extracted_text.txt - Detailed sections")
             print("   • combined_enhanced_text.txt - All text combined")
             print("   • enhanced_detections_page_X.png - Visual verification")
         else:
-            print("❌ No sections detected")
+            print(" No sections detected")
             
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f" Error: {e}")
         import traceback
         traceback.print_exc()
 

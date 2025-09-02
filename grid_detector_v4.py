@@ -322,7 +322,7 @@ class HistogramCVParser:
                 'status': 'success'
             }
             
-            print(f"  ✅ Success: {name} - {processing_time:.2f}s - {len(regions)} regions")
+            print(f"   Success: {name} - {processing_time:.2f}s - {len(regions)} regions")
             return result
             
         except Exception as e:
@@ -420,12 +420,12 @@ class BatchHistogramProcessor:
 def main():
     print("=== Enhanced Histogram-Based CV Parser ===")
     print("Features:")
-    print("✅ 2D Histogram analysis for column/row detection")
-    print("✅ Multi-column layout support")
-    print("✅ Intelligent region extraction")
-    print("✅ Contact info and skills extraction")
-    print("✅ Batch processing")
-    print("✅ CSV output with detailed metrics")
+    print(" 2D Histogram analysis for column/row detection")
+    print(" Multi-column layout support")
+    print(" Intelligent region extraction")
+    print(" Contact info and skills extraction")
+    print(" Batch processing")
+    print(" CSV output with detailed metrics")
     print("=" * 50)
     
     # Configuration

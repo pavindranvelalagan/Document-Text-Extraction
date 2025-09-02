@@ -12,19 +12,19 @@ from scipy import ndimage
 class EnhancedCVProcessor:
     def __init__(self, model_name="yolov8n-seg.pt"):
         """Initialize with document-specific model"""
-        print(f"🚀 Loading model: {model_name}")
+        print(f"Loading model: {model_name}")
         
         try:
             self.model = YOLO(model_name)
-            print(f"✅ Model loaded successfully")
-            print(f"📋 Available classes: {list(self.model.names.values())}")
+            print(f"Model loaded successfully")
+            print(f"Available classes: {list(self.model.names.values())}")
         except Exception as e:
-            print(f"❌ Model loading failed: {e}")
+            print(f"Model loading failed: {e}")
             raise
     
     def pdf_to_images(self, pdf_path, dpi=200):
         """Convert PDF pages to high-resolution images"""
-        print(f"📄 Converting PDF: {pdf_path}")
+        print(f"Converting PDF: {pdf_path}")
         
         images = []
         page_info = []
@@ -44,13 +44,13 @@ class EnhancedCVProcessor:
                     'height_pixels': cv_img.shape[0]
                 })
                 
-                print(f"   ✅ Page {page_num + 1}: {cv_img.shape[1]}x{cv_img.shape[0]} pixels")
+                print(f"Page {page_num + 1}: {cv_img.shape[1]}x{cv_img.shape[0]} pixels")
         
         return images, page_info
     
     def detect_with_segmentation(self, image, confidence_threshold=0.25):
         """Enhanced detection using segmentation masks"""
-        print(f"🔍 Running segmentation detection (conf={confidence_threshold})")
+        print(f"Running segmentation detection (conf={confidence_threshold})")
         
         # Run YOLO inference
         results = self.model(image, conf=confidence_threshold, verbose=False)
@@ -86,7 +86,7 @@ class EnhancedCVProcessor:
         # Apply post-processing
         detections = self.post_process_detections(detections, image)
         
-        print(f"✅ Found {len(detections)} processed regions")
+        print(f"Found {len(detections)} processed regions")
         return detections
     
     def classify_cv_section(self, bbox, img_shape, original_class):
@@ -202,7 +202,7 @@ class EnhancedCVProcessor:
                 sub_detection['area'] = (x2 - x1) * (sec_y2 - sec_y1)
                 sub_detections.append(sub_detection)
         
-        print(f"   🔪 Split into {len(sub_detections)} sections")
+        print(f"Split into {len(sub_detections)} sections")
         return sub_detections
     
     def merge_nearby_detections(self, detections):
@@ -356,11 +356,11 @@ class EnhancedCVProcessor:
         plt.savefig(save_path, dpi=300, bbox_inches='tight')
         plt.close()
         
-        print(f"✅ Saved visualization: {save_path}")
+        print(f"Saved visualization: {save_path}")
     
     def extract_text_from_detections(self, pdf_path, detections, page_info, page_num):
         """Extract text from detected regions"""
-        print(f"📝 Extracting text from {len(detections)} regions")
+        print(f"Extracting text from {len(detections)} regions")
         
         page_data = page_info[page_num]
         x_scale = page_data['width_points'] / page_data['width_pixels']
@@ -402,10 +402,10 @@ class EnhancedCVProcessor:
                     
                     region_texts.append(region_info)
                     
-                    print(f"   📄 Region {detection.get('region_id', 0)} ({detection['class_name']}): {len(text)} chars")
+                    print(f"   Region {detection.get('region_id', 0)} ({detection['class_name']}): {len(text)} chars")
                     
                 except Exception as e:
-                    print(f"   ❌ Error extracting region: {e}")
+                    print(f"   Error extracting region: {e}")
         
         return region_texts
     
@@ -437,11 +437,11 @@ class EnhancedCVProcessor:
             for extraction in all_extractions:
                 f.write(extraction['text'] + "\n")
         
-        print(f"✅ Results saved to {output_dir}")
+        print(f"Results saved to {output_dir}")
     
     def process_cv_complete(self, pdf_path, output_dir="enhanced_output"):
         """Complete CV processing pipeline"""
-        print("🚀 ENHANCED CV PROCESSING PIPELINE")
+        print("ENHANCED CV PROCESSING PIPELINE")
         print("=" * 60)
         
         # Convert PDF to images
@@ -473,7 +473,7 @@ class EnhancedCVProcessor:
 
 def main():
     """Main function to test the enhanced processor"""
-    print("🚀 ENHANCED CV PROCESSOR")
+    print("ENHANCED CV PROCESSOR")
     print("=" * 50)
     
     # Get input
@@ -495,20 +495,20 @@ def main():
         extractions = processor.process_cv_complete(pdf_path, "enhanced_cv_output")
         
         if extractions:
-            print(f"\n🎉 SUCCESS! Extracted {len(extractions)} regions")
-            print("📁 Check 'enhanced_cv_output' folder for results")
+            print(f"\n SUCCESS! Extracted {len(extractions)} regions")
+            print("Check 'enhanced_cv_output' folder for results")
             
             # Print summary
             classes = set(e['class_name'] for e in extractions)
             total_chars = sum(e['char_count'] for e in extractions)
             
-            print(f"📊 Detected sections: {', '.join(classes)}")
-            print(f"📝 Total characters: {total_chars:,}")
+            print(f"Detected sections: {', '.join(classes)}")
+            print(f"Total characters: {total_chars:,}")
         else:
-            print("❌ No regions extracted")
+            print("No regions extracted")
             
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f"Error: {e}")
         import traceback
         traceback.print_exc()
 

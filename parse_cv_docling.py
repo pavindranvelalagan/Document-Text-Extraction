@@ -240,7 +240,7 @@ def parse_with_docling(pdf_path: str, output_dir: str = DEFAULT_OUTPUT_DIR) -> d
 import argparse
 
 def main():
-    print("🚀 Docling CV Parser")
+    print(" Docling CV Parser")
     print("====================")
     parser = argparse.ArgumentParser(description="Parse a CV PDF with Docling and output JSON.")
     parser.add_argument("pdf_path", help="Path to CV PDF")
@@ -248,7 +248,7 @@ def main():
     args = parser.parse_args()
 
     structured = parse_with_docling(args.pdf_path, args.output_dir)
-    print(f"\n✅ Done. Results in: {args.output_dir}")
+    print(f"\n Done. Results in: {args.output_dir}")
     print(f"   - docling_raw.json")
     print(f"   - structured_cv.json")
     print(f"   - cv_markdown.md")

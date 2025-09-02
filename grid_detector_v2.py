@@ -187,7 +187,7 @@ def visualize_grid_nonblocking(cv_img, regions, v_separators, h_separators, page
     plt.savefig(filename, dpi=300, bbox_inches='tight')
     plt.close()  # Important: Close to free memory
     
-    print(f"✅ Saved {filename} (non-blocking)")
+    print(f"Saved {filename} (non-blocking)")
 
 def extract_region_texts_safe(pdf_path, regions, page_num):
     """Safe text extraction with proper error handling"""
@@ -197,7 +197,7 @@ def extract_region_texts_safe(pdf_path, regions, page_num):
     try:
         with pdfplumber.open(pdf_path) as pdf:
             if page_num >= len(pdf.pages):
-                print(f"❌ Page {page_num} doesn't exist")
+                print(f"Page {page_num} doesn't exist")
                 return []
                 
             page = pdf.pages[page_num]
@@ -210,7 +210,7 @@ def extract_region_texts_safe(pdf_path, regions, page_num):
                     # Additional safety check
                     if (pdf_bbox[0] >= pdf_bbox[2] or pdf_bbox[1] >= pdf_bbox[3] or
                         pdf_bbox[2] > page.width or pdf_bbox[3] > page.height):
-                        print(f"⚠️ Skipping invalid region {region['id']}: {pdf_bbox}")
+                        print(f"Skipping invalid region {region['id']}: {pdf_bbox}")
                         continue
                     
                     cropped_page = page.crop(pdf_bbox)
@@ -228,26 +228,26 @@ def extract_region_texts_safe(pdf_path, regions, page_num):
                     }
                     
                     region_texts.append(region_info)
-                    print(f"📄 Page {page_num}, Region {region['id']}: {len(text)} characters")
+                    print(f"Page {page_num}, Region {region['id']}: {len(text)} characters")
                     
                 except Exception as e:
-                    print(f"❌ Error extracting Page {page_num}, Region {region['id']}: {e}")
+                    print(f"Error extracting Page {page_num}, Region {region['id']}: {e}")
                     
     except Exception as e:
-        print(f"❌ Error opening PDF for page {page_num}: {e}")
+        print(f"Error opening PDF for page {page_num}: {e}")
         
     return region_texts
 
 def process_single_page(pdf_path, page_num):
     """Process one page and return extracted regions"""
     
-    print(f"\n📄 PROCESSING PAGE {page_num + 1}")
+    print(f"\nPROCESSING PAGE {page_num + 1}")
     print("=" * 40)
     
     try:
         with pdfplumber.open(pdf_path) as pdf:
             if page_num >= len(pdf.pages):
-                print(f"❌ Page {page_num + 1} doesn't exist")
+                print(f"Page {page_num + 1} doesn't exist")
                 return []
                 
             page = pdf.pages[page_num]
@@ -277,8 +277,8 @@ def process_single_page(pdf_path, page_num):
                 threshold_ratio=0.20
                 )
             
-            print(f"📍 Vertical separators: {len(v_separators)}")
-            print(f"📍 Horizontal separators: {len(h_separators)}")
+            print(f"Vertical separators: {len(v_separators)}")
+            print(f"Horizontal separators: {len(h_separators)}")
             
             # Create regions with proper clipping
             regions = create_text_regions_fixed(v_separators, h_separators, W, H, page.width, page.height)
@@ -292,17 +292,17 @@ def process_single_page(pdf_path, page_num):
             return region_texts
             
     except Exception as e:
-        print(f"❌ Error processing page {page_num + 1}: {e}")
+        print(f"Error processing page {page_num + 1}: {e}")
         return []
 
 def main():
     """MULTI-PAGE processing with all fixes"""
     
-    print("🚀 ENHANCED 2D GRID CV EXTRACTION")
+    print("ENHANCED 2D GRID CV EXTRACTION")
     print("=" * 60)
-    print("✅ Multi-page processing")
-    print("✅ Non-blocking visualization") 
-    print("✅ Fixed bounding box errors")
+    print("Multi-page processing")
+    print("Non-blocking visualization") 
+    print("Fixed bounding box errors")
     print("=" * 60)
     
     # Get PDF path
@@ -312,16 +312,16 @@ def main():
         print(f"Using default: {pdf_path}")
     
     if not os.path.exists(pdf_path):
-        print(f"❌ File not found: {pdf_path}")
+        print(f"File not found: {pdf_path}")
         return
     
     # Get total pages
     try:
         with pdfplumber.open(pdf_path) as pdf:
             total_pages = len(pdf.pages)
-            print(f"📁 Processing {total_pages} pages from: {pdf_path}")
+            print(f"Processing {total_pages} pages from: {pdf_path}")
     except Exception as e:
-        print(f"❌ Error reading PDF: {e}")
+        print(f"Error reading PDF: {e}")
         return
     
     # Process all pages
@@ -348,12 +348,12 @@ def main():
                 f.write("-" * 30 + "\n")
                 f.write(region['text'] + "\n\n")
         
-        print(f"\n✅ COMPLETE! Processed {total_pages} pages")
-        print(f"📄 Extracted {len(all_regions)} text regions total")
-        print(f"💾 Saved: extracted_regions_all_pages.txt")
-        print(f"🖼️  Created grid_analysis_page_X.png for each page")
+        print(f"\nCOMPLETE! Processed {total_pages} pages")
+        print(f"Extracted {len(all_regions)} text regions total")
+        print(f"Saved: extracted_regions_all_pages.txt")
+        print(f"Created grid_analysis_page_X.png for each page")
     else:
-        print("❌ No regions extracted from any page")
+        print("No regions extracted from any page")
 
 if __name__ == "__main__":
     main()

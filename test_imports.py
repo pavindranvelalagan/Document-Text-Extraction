@@ -5,4 +5,4 @@ import numpy as np
 import pdfplumber
 import pymupdf as fitz
 
-print("✅ All libraries installed successfully!")
+print("All libraries installed successfully!")

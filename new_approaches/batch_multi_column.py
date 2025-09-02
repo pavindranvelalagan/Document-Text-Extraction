@@ -568,7 +568,7 @@ class BatchMultiColumnProcessor:
                 }
                 
                 successful_parses += 1
-                print(f"  ✅ Success: {name} - {processing_time:.2f}s - {column_count} columns")
+                print(f"Success: {name} - {processing_time:.2f}s - {column_count} columns")
                 
             except Exception as e:
                 processing_time = time.time() - start_time
@@ -589,7 +589,7 @@ class BatchMultiColumnProcessor:
                 }
                 
                 failed_parses += 1
-                print(f"  ❌ Error: {str(e)[:100]}")
+                print(f"Error: {str(e)[:100]}")
             
             results.append(row_data)
         

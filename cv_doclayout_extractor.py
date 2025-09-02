@@ -11,7 +11,7 @@ class SimplifiedSemanticCVParser:
     def __init__(self):
         """Initialize with semantic classification models only"""
         
-        print("🚀 Initializing Simplified Semantic CV Parser")
+        print("Initializing Simplified Semantic CV Parser")
         print("=" * 60)
         
         # Load semantic classification models
@@ -42,12 +42,12 @@ class SimplifiedSemanticCVParser:
             "Languages"
         ]
         
-        print("✅ Loaded semantic classification models")
+        print("Loaded semantic classification models")
     
     def extract_text_blocks(self, pdf_path):
         """Extract text blocks using simple paragraph-based splitting"""
         
-        print(f"📄 Extracting text blocks from PDF...")
+        print(f"Extracting text blocks from PDF...")
         
         text_blocks = []
         
@@ -98,10 +98,10 @@ class SimplifiedSemanticCVParser:
                             })
                             
         except Exception as e:
-            print(f"❌ Error extracting text: {e}")
+            print(f"Error extracting text: {e}")
             return []
         
-        print(f"✅ Extracted {len(text_blocks)} text blocks")
+        print(f"Extracted {len(text_blocks)} text blocks")
         return text_blocks
     
     def classify_text_section(self, text):
@@ -120,7 +120,7 @@ class SimplifiedSemanticCVParser:
             return section, confidence
             
         except Exception as e:
-            print(f"⚠️ Error classifying text: {e}")
+            print(f"Error classifying text: {e}")
             return "Other", 0.0
     
     def extract_entities(self, text):
@@ -139,7 +139,7 @@ class SimplifiedSemanticCVParser:
             return dict(entity_dict)
             
         except Exception as e:
-            print(f"⚠️ Error extracting entities: {e}")
+            print(f"Error extracting entities: {e}")
             return {}
     
     def extract_contact_info(self, text):
@@ -177,14 +177,14 @@ class SimplifiedSemanticCVParser:
     def process_cv_semantic(self, pdf_path):
         """Main processing pipeline"""
         
-        print(f"\n🔄 Processing CV: {os.path.basename(pdf_path)}")
+        print(f"\nProcessing CV: {os.path.basename(pdf_path)}")
         print("=" * 60)
         
         # Step 1: Extract text blocks
         text_blocks = self.extract_text_blocks(pdf_path)
         
         if not text_blocks:
-            print("❌ No text blocks found")
+            print("No text blocks found")
             return None
         
         # Step 2: Classify each block
@@ -198,7 +198,7 @@ class SimplifiedSemanticCVParser:
             if len(text.strip()) < 10:
                 continue
             
-            print(f"📋 Processing block {block['block_id']}: {text[:50]}...")
+            print(f"Processing block {block['block_id']}: {text[:50]}...")
             
             # Classify section type
             section_type, confidence = self.classify_text_section(text)
@@ -327,39 +327,39 @@ class SimplifiedSemanticCVParser:
             f.write("STRUCTURED CV EXTRACTION RESULTS\n")
             f.write("=" * 60 + "\n\n")
             
-            f.write(f"👤 Name: {structured_data.get('name', 'Not detected')}\n\n")
+            f.write(f"Name: {structured_data.get('name', 'Not detected')}\n\n")
             
-            f.write("📞 Contact Details:\n")
+            f.write("Contact Details:\n")
             contact = structured_data.get('contact_details', {})
             f.write(f"   Email: {contact.get('emails', 'Not found')}\n")
             f.write(f"   Phone: {contact.get('phones', 'Not found')}\n")
             f.write(f"   LinkedIn: {contact.get('linkedin', 'Not found')}\n\n")
             
-            f.write("📄 Professional Summary:\n")
+            f.write("Professional Summary:\n")
             summary = structured_data.get('professional_summary', 'Not found')
             f.write(f"{summary[:300]}{'...' if len(summary) > 300 else ''}\n\n")
             
-            f.write("🎯 Skills:\n")
+            f.write("Skills:\n")
             all_skills = structured_data.get('skills', []) + structured_data.get('technical_skills', [])
             for skill in all_skills[:20]:  # Show first 20 skills
                 f.write(f"   • {skill}\n")
             if len(all_skills) > 20:
                 f.write(f"   • ... and {len(all_skills) - 20} more\n")
             
-            f.write(f"\n💼 Work Experience: {len(structured_data.get('work_experience', []))} sections found\n")
-            f.write(f"🎓 Education: {len(structured_data.get('education', []))} sections found\n")
-            f.write(f"🚀 Projects: {len(structured_data.get('projects', []))} sections found\n")
-            f.write(f"📜 Certifications: {len(structured_data.get('certifications', []))} sections found\n")
+            f.write(f"\nWork Experience: {len(structured_data.get('work_experience', []))} sections found\n")
+            f.write(f"Education: {len(structured_data.get('education', []))} sections found\n")
+            f.write(f"Projects: {len(structured_data.get('projects', []))} sections found\n")
+            f.write(f"Certifications: {len(structured_data.get('certifications', []))} sections found\n")
         
-        print(f"✅ Saved structured data: {json_path}")
-        print(f"✅ Saved summary: {summary_path}")
+        print(f"Saved structured data: {json_path}")
+        print(f"Saved summary: {summary_path}")
         
         return json_path, summary_path
 
 def main():
     """Main function"""
     
-    print("🚀 SIMPLIFIED SEMANTIC CV PARSER")
+    print("SIMPLIFIED SEMANTIC CV PARSER")
     print("=" * 60)
     print("Direct Text Extraction + Semantic Classification")
     print("=" * 60)
@@ -371,7 +371,7 @@ def main():
         print(f"Using default: {pdf_path}")
     
     if not os.path.exists(pdf_path):
-        print(f"❌ File not found: {pdf_path}")
+        print(f"File not found: {pdf_path}")
         return
     
     try:
@@ -385,28 +385,28 @@ def main():
             # Save results
             json_path, summary_path = parser.save_results(structured_data, "semantic_cv_output")
             
-            print(f"\n🎉 SUCCESS! Extracted structured CV data:")
-            print(f"📊 Results saved to: semantic_cv_output/")
-            print(f"\n📋 Key Information:")
-            print(f"   👤 Name: {structured_data.get('name', 'Not detected')}")
-            print(f"   📧 Email: {structured_data.get('contact_details', {}).get('emails', 'Not found')}")
-            print(f"   📱 Phone: {structured_data.get('contact_details', {}).get('phones', 'Not found')}")
-            print(f"   🎯 Skills: {len(structured_data.get('skills', []) + structured_data.get('technical_skills', []))}")
-            print(f"   💼 Work Experience: {len(structured_data.get('work_experience', []))}")
-            print(f"   🎓 Education: {len(structured_data.get('education', []))}")
-            print(f"   🚀 Projects: {len(structured_data.get('projects', []))}")
+            print(f"\nSUCCESS! Extracted structured CV data:")
+            print(f"Results saved to: semantic_cv_output/")
+            print(f"\nKey Information:")
+            print(f"   Name: {structured_data.get('name', 'Not detected')}")
+            print(f"   Email: {structured_data.get('contact_details', {}).get('emails', 'Not found')}")
+            print(f"   Phone: {structured_data.get('contact_details', {}).get('phones', 'Not found')}")
+            print(f"   Skills: {len(structured_data.get('skills', []) + structured_data.get('technical_skills', []))}")
+            print(f"   Work Experience: {len(structured_data.get('work_experience', []))}")
+            print(f"   Education: {len(structured_data.get('education', []))}")
+            print(f"   Projects: {len(structured_data.get('projects', []))}")
             
-            print(f"\n📄 Sample JSON output:")
+            print(f"\nSample JSON output:")
             sample = {k: v for k, v in list(structured_data.items())[:3]}
             print(json.dumps(sample, indent=2)[:400] + "...")
             
-            print(f"\n💡 The JSON file can now be fed directly to your LLM for analysis!")
+            print(f"\nThe JSON file can now be fed directly to your LLM for analysis!")
             
         else:
-            print("❌ Failed to extract structured data")
+            print("Failed to extract structured data")
             
     except Exception as e:
-        print(f"❌ Error: {e}")
+        print(f"Error: {e}")
         import traceback
         traceback.print_exc()
 

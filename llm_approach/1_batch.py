@@ -240,7 +240,7 @@ class BatchCVProcessor:
                     "Status": f"ERROR: {result['error'][:100]}"
                 })
                 failed_parses += 1
-                print(f"  ❌ Error: {result['error'][:100]}")
+                print(f"Error: {result['error'][:100]}")
             else:
                 # Handle successful parsing
                 row_data.update({
@@ -254,7 +254,7 @@ class BatchCVProcessor:
                     "Status": "SUCCESS"
                 })
                 successful_parses += 1
-                print(f"  ✅ Success: {result.get('name', 'Unknown')} - {processing_time:.2f}s")
+                print(f"Success: {result.get('name', 'Unknown')} - {processing_time:.2f}s")
             
             results.append(row_data)
         

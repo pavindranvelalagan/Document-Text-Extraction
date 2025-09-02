@@ -23,7 +23,7 @@ def clip_bbox(bbox, max_width, max_height):
 def compute_2d_histograms(cv_img, smooth_kernel=5):
     """Compute both vertical AND horizontal histograms"""
     
-    print("🔍 Computing 2D Histograms...")
+    print(" Computing 2D Histograms...")
     
     gray = cv2.cvtColor(cv_img, cv2.COLOR_BGR2GRAY)
     _, binary = cv2.threshold(gray, 200, 255, cv2.THRESH_BINARY_INV)
@@ -37,8 +37,8 @@ def compute_2d_histograms(cv_img, smooth_kernel=5):
     vertical_hist = np.sum(v_smoothed, axis=0)    # Column density
     horizontal_hist = np.sum(h_smoothed, axis=1)  # Row density
     
-    print(f"✅ Vertical histogram: {len(vertical_hist)} points")
-    print(f"✅ Horizontal histogram: {len(horizontal_hist)} points")
+    print(f" Vertical histogram: {len(vertical_hist)} points")
+    print(f" Horizontal histogram: {len(horizontal_hist)} points")
     
     return vertical_hist, horizontal_hist, binary
 
@@ -49,12 +49,12 @@ def find_separators_1d_debug(histogram, direction, min_gap_ratio=0.03, threshold
     max_density = np.max(histogram)
     mean_density = np.mean(histogram)
     
-    print(f"\n🔍 DEBUG: {direction} Separator Detection")
-    print(f"📊 Max density: {max_density}")
-    print(f"📊 Mean density: {mean_density:.1f}")
+    print(f"\n DEBUG: {direction} Separator Detection")
+    print(f" Max density: {max_density}")
+    print(f" Mean density: {mean_density:.1f}")
     
     if max_density == 0:
-        print("❌ No text found in histogram")
+        print(" No text found in histogram")
         return []
     
     # Parameters
@@ -62,18 +62,18 @@ def find_separators_1d_debug(histogram, direction, min_gap_ratio=0.03, threshold
     min_gap_width = int(total_length * min_gap_ratio)
     margin_ignore = int(total_length * margin_ratio)
     
-    print(f"📏 Threshold: {threshold:.1f} ({threshold_ratio*100}% of max)")
-    print(f"📏 Min gap width: {min_gap_width} pixels ({min_gap_ratio*100}% of {direction.lower()})")
-    print(f"📏 Margin ignore: {margin_ignore} pixels")
+    print(f" Threshold: {threshold:.1f} ({threshold_ratio*100}% of max)")
+    print(f" Min gap width: {min_gap_width} pixels ({min_gap_ratio*100}% of {direction.lower()})")
+    print(f" Margin ignore: {margin_ignore} pixels")
     
     # Find gaps below threshold
     below_threshold = np.where(histogram < threshold)[0]
     
     if len(below_threshold) == 0:
-        print(f"❌ No pixels below threshold for {direction}")
+        print(f" No pixels below threshold for {direction}")
         return []
     
-    print(f"🔍 Found {len(below_threshold)} pixels below threshold ({len(below_threshold)/total_length*100:.1f}%)")
+    print(f" Found {len(below_threshold)} pixels below threshold ({len(below_threshold)/total_length*100:.1f}%)")
     
     # Group consecutive positions into gaps
     gaps = []
@@ -94,7 +94,7 @@ def find_separators_1d_debug(histogram, direction, min_gap_ratio=0.03, threshold
                     'center': int(center),
                     'width': int(width)
                 })
-                print(f"✅ Gap found: {start}-{prev} (width: {width}, center: {center})")
+                print(f" Gap found: {start}-{prev} (width: {width}, center: {center})")
             start = pos
             prev = pos
     
@@ -108,9 +108,9 @@ def find_separators_1d_debug(histogram, direction, min_gap_ratio=0.03, threshold
             'center': int(center), 
             'width': int(width)
         })
-        print(f"✅ Last gap: {start}-{prev} (width: {width}, center: {center})")
+        print(f" Last gap: {start}-{prev} (width: {width}, center: {center})")
     
-    print(f"🎯 Total {direction.lower()} separators found: {len(gaps)}")
+    print(f" Total {direction.lower()} separators found: {len(gaps)}")
     return gaps
 
 def find_true_gaps_horizontal(horizontal_hist, min_gap_height_ratio=0.04):
@@ -119,24 +119,24 @@ def find_true_gaps_horizontal(horizontal_hist, min_gap_height_ratio=0.04):
     More restrictive to avoid cutting through text
     """
     
-    print(f"\n🔍 TRUE GAP Detection (Horizontal)")
+    print(f"\n TRUE GAP Detection (Horizontal)")
     
     # Only consider areas with essentially zero text (1% of max)
     max_density = np.max(horizontal_hist)
     true_threshold = max_density * 0.01
     min_gap_height = int(len(horizontal_hist) * min_gap_height_ratio)
     
-    print(f"📊 True gap threshold: {true_threshold:.1f} (1% of max)")
-    print(f"📏 Min gap height: {min_gap_height} pixels")
+    print(f" True gap threshold: {true_threshold:.1f} (1% of max)")
+    print(f" Min gap height: {min_gap_height} pixels")
     
     # Find completely empty regions
     empty_regions = np.where(horizontal_hist <= true_threshold)[0]
     
     if len(empty_regions) == 0:
-        print("❌ No true gaps found")
+        print(" No true gaps found")
         return []
     
-    print(f"🔍 Found {len(empty_regions)} near-empty pixels")
+    print(f" Found {len(empty_regions)} near-empty pixels")
     
     # Group consecutive empty positions
     gaps = []
@@ -157,7 +157,7 @@ def find_true_gaps_horizontal(horizontal_hist, min_gap_height_ratio=0.04):
                     'center': int(center),
                     'width': int(gap_height)
                 })
-                print(f"✅ True gap: {start}-{prev} (height: {gap_height})")
+                print(f" True gap: {start}-{prev} (height: {gap_height})")
             
             start = pos
             prev = pos
@@ -172,15 +172,15 @@ def find_true_gaps_horizontal(horizontal_hist, min_gap_height_ratio=0.04):
             'center': int(center),
             'width': int(gap_height)
         })
-        print(f"✅ Last true gap: {start}-{prev} (height: {gap_height})")
+        print(f" Last true gap: {start}-{prev} (height: {gap_height})")
     
-    print(f"🎯 Total true horizontal gaps: {len(gaps)}")
+    print(f" Total true horizontal gaps: {len(gaps)}")
     return gaps
 
 def create_text_regions_fixed(v_separators, h_separators, img_width, img_height, page_width, page_height):
     """Create rectangular text regions with proper clipping"""
     
-    print(f"\n🔍 Creating Text Regions Grid")
+    print(f"\n Creating Text Regions Grid")
     print("=" * 40)
     
     # Create boundaries
@@ -196,8 +196,8 @@ def create_text_regions_fixed(v_separators, h_separators, img_width, img_height,
     y_boundaries.append(img_height)
     y_boundaries = sorted(list(set(y_boundaries)))
     
-    print(f"📏 Column boundaries: {x_boundaries}")
-    print(f"📏 Row boundaries: {y_boundaries}")
+    print(f" Column boundaries: {x_boundaries}")
+    print(f" Row boundaries: {y_boundaries}")
     
     # Scale factors
     x_scale = page_width / img_width
@@ -243,7 +243,7 @@ def create_text_regions_fixed(v_separators, h_separators, img_width, img_height,
             })
             region_id += 1
     
-    print(f"✅ Created {len(regions)} text regions")
+    print(f" Created {len(regions)} text regions")
     return regions
 
 def visualize_grid_nonblocking(cv_img, regions, v_separators, h_separators, page_num):
@@ -285,7 +285,7 @@ def visualize_grid_nonblocking(cv_img, regions, v_separators, h_separators, page
     plt.savefig(filename, dpi=300, bbox_inches='tight')
     plt.close()
     
-    print(f"✅ Saved {filename} (non-blocking)")
+    print(f" Saved {filename} (non-blocking)")
 
 def extract_region_texts_safe(pdf_path, regions, page_num):
     """Safe text extraction with proper error handling"""
@@ -295,7 +295,7 @@ def extract_region_texts_safe(pdf_path, regions, page_num):
     try:
         with pdfplumber.open(pdf_path) as pdf:
             if page_num >= len(pdf.pages):
-                print(f"❌ Page {page_num + 1} doesn't exist")
+                print(f" Page {page_num + 1} doesn't exist")
                 return []
                 
             page = pdf.pages[page_num]
@@ -307,7 +307,7 @@ def extract_region_texts_safe(pdf_path, regions, page_num):
                     # Additional safety check
                     if (pdf_bbox[0] >= pdf_bbox[2] or pdf_bbox[1] >= pdf_bbox[3] or
                         pdf_bbox[2] > page.width or pdf_bbox[3] > page.height):
-                        print(f"⚠️ Skipping invalid region {region['id']}: {pdf_bbox}")
+                        print(f" Skipping invalid region {region['id']}: {pdf_bbox}")
                         continue
                     
                     cropped_page = page.crop(pdf_bbox)
@@ -325,26 +325,26 @@ def extract_region_texts_safe(pdf_path, regions, page_num):
                     }
                     
                     region_texts.append(region_info)
-                    print(f"📄 Page {page_num + 1}, Region {region['id']}: {len(text)} chars")
+                    print(f" Page {page_num + 1}, Region {region['id']}: {len(text)} chars")
                     
                 except Exception as e:
-                    print(f"❌ Error extracting Page {page_num + 1}, Region {region['id']}: {e}")
+                    print(f" Error extracting Page {page_num + 1}, Region {region['id']}: {e}")
                     
     except Exception as e:
-        print(f"❌ Error opening PDF for page {page_num + 1}: {e}")
+        print(f" Error opening PDF for page {page_num + 1}: {e}")
         
     return region_texts
 
 def process_single_page(pdf_path, page_num, use_true_gaps=True):
     """Process one page with improved parameters"""
     
-    print(f"\n📄 PROCESSING PAGE {page_num + 1}")
+    print(f"\n PROCESSING PAGE {page_num + 1}")
     print("=" * 50)
     
     try:
         with pdfplumber.open(pdf_path) as pdf:
             if page_num >= len(pdf.pages):
-                print(f"❌ Page {page_num + 1} doesn't exist")
+                print(f" Page {page_num + 1} doesn't exist")
                 return []
                 
             page = pdf.pages[page_num]
@@ -354,7 +354,7 @@ def process_single_page(pdf_path, page_num, use_true_gaps=True):
             cv_img = cv2.cvtColor(np.array(img.original), cv2.COLOR_RGB2BGR)
             
             H, W = cv_img.shape[:2]
-            print(f"📏 Image size: {W} × {H} pixels")
+            print(f" Image size: {W} × {H} pixels")
             
             # Compute histograms with different smoothing
             v_hist, h_hist, binary = compute_2d_histograms(cv_img, smooth_kernel=5)
@@ -378,9 +378,9 @@ def process_single_page(pdf_path, page_num, use_true_gaps=True):
                     threshold_ratio=0.20,     # Only very empty areas (20% of max)
                     margin_ratio=0.05)        # Standard margin
             
-            print(f"\n🎯 FINAL RESULTS:")
-            print(f"📍 Vertical separators: {len(v_separators)}")
-            print(f"📍 Horizontal separators: {len(h_separators)}")
+            print(f"\n FINAL RESULTS:")
+            print(f" Vertical separators: {len(v_separators)}")
+            print(f" Horizontal separators: {len(h_separators)}")
             
             # Create regions
             regions = create_text_regions_fixed(v_separators, h_separators, W, H, page.width, page.height)
@@ -394,19 +394,19 @@ def process_single_page(pdf_path, page_num, use_true_gaps=True):
             return region_texts
             
     except Exception as e:
-        print(f"❌ Error processing page {page_num + 1}: {e}")
+        print(f" Error processing page {page_num + 1}: {e}")
         return []
 
 def main():
     """FINAL Multi-page processing with improved parameters"""
     
-    print("🚀 FINAL ENHANCED 2D GRID CV EXTRACTION")
+    print(" FINAL ENHANCED 2D GRID CV EXTRACTION")
     print("=" * 60)
-    print("✅ Improved vertical detection (sensitive)")
-    print("✅ Improved horizontal detection (restrictive)")
-    print("✅ Multi-page processing")
-    print("✅ Non-blocking visualization") 
-    print("✅ Fixed bounding box errors")
+    print(" Improved vertical detection (sensitive)")
+    print(" Improved horizontal detection (restrictive)")
+    print(" Multi-page processing")
+    print(" Non-blocking visualization") 
+    print(" Fixed bounding box errors")
     print("=" * 60)
     
     # Get PDF path
@@ -416,7 +416,7 @@ def main():
         print(f"Using default: {pdf_path}")
     
     if not os.path.exists(pdf_path):
-        print(f"❌ File not found: {pdf_path}")
+        print(f" File not found: {pdf_path}")
         return
     
     # Ask for gap detection method
@@ -427,9 +427,9 @@ def main():
     try:
         with pdfplumber.open(pdf_path) as pdf:
             total_pages = len(pdf.pages)
-            print(f"📁 Processing {total_pages} pages from: {pdf_path}")
+            print(f" Processing {total_pages} pages from: {pdf_path}")
     except Exception as e:
-        print(f"❌ Error reading PDF: {e}")
+        print(f" Error reading PDF: {e}")
         return
     
     # Process all pages
@@ -458,18 +458,18 @@ def main():
                 f.write("-" * 30 + "\n")
                 f.write(region['text'] + "\n\n")
         
-        print(f"\n🎉 COMPLETE! Processed {total_pages} pages")
-        print(f"📄 Extracted {len(all_regions)} text regions total")
-        print(f"💾 Saved: extracted_regions_final.txt")
-        print(f"🖼️  Created grid_analysis_page_X_fixed.png for each page")
+        print(f"\n COMPLETE! Processed {total_pages} pages")
+        print(f" Extracted {len(all_regions)} text regions total")
+        print(f" Saved: extracted_regions_final.txt")
+        print(f"  Created grid_analysis_page_X_fixed.png for each page")
         
         # Summary statistics
         pages_with_regions = len(set(r['page'] for r in all_regions))
         avg_regions_per_page = len(all_regions) / pages_with_regions if pages_with_regions > 0 else 0
-        print(f"📊 Average regions per page: {avg_regions_per_page:.1f}")
+        print(f" Average regions per page: {avg_regions_per_page:.1f}")
         
     else:
-        print("❌ No regions extracted from any page")
+        print(" No regions extracted from any page")
 
 if __name__ == "__main__":
     main()
