@@ -136,6 +136,7 @@ def main():
     # parser = WindowsCVParser("llama3.2") 
     
     # test 2: took 8.02 seconds - FASTEST SO FAR
+    # test 2: took 4.77 seconds - After optimization 
     parser = WindowsCVParser("llama3.2:1b")  
     
     # test 3: took 30 seconds and returned empty json with error 

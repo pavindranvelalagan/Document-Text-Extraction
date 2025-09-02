@@ -1,0 +1,40 @@
+{
+  "name": "HARSHA SAMPATH",
+  "email": "harshasampathkg@gmail.com",
+  "phone": "+94(0) 76 97 87 765",
+  "experience": [
+    {
+      "position": "Software Engineer",
+      "company": "Kapruka.com",
+      "duration": "Jan 2024 - July 2024"
+    },
+    {
+      "position": "Intern",
+      "company": "Kapruka.com",
+      "duration": "Feb 2023 - July 2023"
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Information Technology",
+      "school": "University of Moratuwa",
+      "year": "Undergraduate"
+    }
+  ],
+  "skills": [
+    "Fluter/ Android",
+    "Native/ Angular/ React/ Spring/ Node/ MySql/ MsSql/ PostgreySql",
+    "Problem solving",
+    "Customer service",
+    "Attention to details",
+    "Fluent in English"
+  ],
+  "years_experience": "1 year",
+  "extraction_metadata": {
+    "method": "LLaMA_Windows",
+    "model": "llama3.2:1b",
+    "success": true,
+    "file_processed": "Sample1.pdf",
+    "processing_time_seconds": 4.77
+  }
+}
