@@ -25,7 +25,8 @@ class DocumentYOLOExtractor:
         # Try YOLOv8 segmentation (best available option)
         try:
             print("🔄 Loading YOLOv8 segmentation model...")
-            model = YOLO("yolov8n-seg.pt")  # Segmentation version
+            # v1.0: model = YOLO("yolov8n-seg.pt")  # Segmentation version
+            model = YOLO("nakamura196/yolov8-ndl-layout")
             print("✅ Loaded YOLOv8 segmentation model")
             return model
             
