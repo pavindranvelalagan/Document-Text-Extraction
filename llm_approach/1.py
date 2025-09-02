@@ -1,161 +1,181 @@
-# llm_cv_parser.py
+# windows_cv_parser.py
 import ollama
 import json
-import fitz  # For PDF text extraction
+import fitz  # PyMuPDF
 from pathlib import Path
+import os
+import re
+import time
 
-class LLaMACVParser:
+class WindowsCVParser:
     def __init__(self, model_name="llama3.2"):
         self.model_name = model_name
         self.client = ollama.Client()
-        
-        # Verify model is available
-        try:
-            self.client.chat(model=model_name, messages=[{"role": "user", "content": "test"}])
-        except:
-            print(f"Model {model_name} not found. Installing...")
-            ollama.pull(model_name)
+        print(f"Using model: {model_name}")
     
     def extract_text_from_pdf(self, pdf_path):
-        """Simple text extraction - no coordinate complexity needed"""
-        doc = fitz.open(pdf_path)
-        text = ""
-        for page in doc:
-            text += page.get_text()
-        doc.close()
-        return text
+        """Extract text from PDF"""
+        try:
+            doc = fitz.open(pdf_path)
+            text = ""
+            for page in doc:
+                text += page.get_text()
+            doc.close()
+            return text
+        except Exception as e:
+            return f"Error reading PDF: {str(e)}"
     
-    def create_parsing_prompt(self, resume_text, job_title="Software Engineer"):
-        """Create a structured prompt for CV parsing"""
-        prompt = f"""
-You are an expert HR assistant. Extract information from this resume and return ONLY a valid JSON object with the following structure:
-
+    def create_parsing_prompt(self, resume_text):
+        """Create structured prompt for CV parsing"""
+        prompt = f"""Extract key info from this resume as JSON:
 {{
-  "personal_info": {{
-    "name": "Full name",
-    "email": "email@example.com",
-    "phone": "phone number",
-    "address": "address if available",
-    "linkedin": "linkedin profile if available",
-    "github": "github profile if available"
-  }},
-  "professional_summary": "Brief summary of candidate's profile",
-  "experience": [
-    {{
-      "position": "Job title",
-      "company": "Company name",
-      "duration": "Start - End dates",
-      "description": "Key responsibilities and achievements"
-    }}
-  ],
-  "education": [
-    {{
-      "degree": "Degree name",
-      "institution": "University/College name",
-      "year": "Graduation year",
-      "gpa": "GPA if mentioned"
-    }}
-  ],
-  "skills": {{
-    "technical_skills": ["skill1", "skill2", "skill3"],
-    "soft_skills": ["skill1", "skill2"],
-    "programming_languages": ["language1", "language2"],
-    "frameworks_tools": ["tool1", "tool2"]
-  }},
-  "projects": [
-    {{
-      "name": "Project name",
-      "description": "Project description",
-      "technologies": ["tech1", "tech2"],
-      "role": "Your role in project"
-    }}
-  ],
-  "certifications": ["cert1", "cert2"],
-  "years_of_experience": "Total years of experience as number",
-  "job_relevance_score": "Score from 1-10 for {job_title} position"
+    "name": "full name",
+    "email": "email", 
+    "phone": "phone",
+    "experience": [{{"position": "title", "company": "name", "duration": "dates"}}],
+    "education": [{{"degree": "degree", "school": "institution", "year": "year"}}],
+    "skills": ["skill1", "skill2"],
+    "years_experience": "number"
 }}
 
-Resume text:
-{resume_text}
+Resume: {resume_text[:3000]}
 
-Return ONLY the JSON object, no additional text or explanation.
-"""
+Return only JSON:"""
         return prompt
+
+    def extract_json_from_response(self, response_text):
+        """Extract JSON from LLM response regardless of formatting"""
+        # Remove common prefixes
+        text = response_text.strip()
+        
+        # Remove markdown code blocks - FIXED REGEX PATTERNS
+        text = re.sub(r'^```.*', '', text)
+        text = re.sub(r'\s*```$', '', text)
+        
+        # Remove "json" prefix if present
+        text = re.sub(r'^json\s*', '', text, flags=re.IGNORECASE)
+        
+        # Find JSON content using regex
+        json_pattern = r'(\{.*\}|\[.*\])'
+        match = re.search(json_pattern, text, re.DOTALL)
+        
+        if match:
+            return match.group(1).strip()
+        else:
+            return text.strip()
     
-    def parse_resume(self, pdf_path, job_title="Software Engineer"):
-        """Main parsing function using LLaMA"""
+    def parse_cv(self, pdf_path):
+        """Main parsing function"""
         try:
-            # Extract text (simple, no coordinate complexity)
-            resume_text = self.extract_text_from_pdf(pdf_path)
+            start_time = time.time()
+            print(f"Processing: {pdf_path}")
             
-            if not resume_text.strip():
-                return {"error": "Could not extract text from PDF"}
+            # Extract text
+            resume_text = self.extract_text_from_pdf(pdf_path)
+            if "Error reading PDF" in resume_text:
+                return {"error": resume_text}
+            
+            print(f"Extracted {len(resume_text)} characters from PDF")
             
             # Create prompt
-            prompt = self.create_parsing_prompt(resume_text, job_title)
+            prompt = self.create_parsing_prompt(resume_text)
             
-            # Get LLM response
+            print("Sending to LLaMA for processing...")
+            
+            # Get LLM response with optimized parameters
             response = self.client.chat(
                 model=self.model_name,
                 messages=[{"role": "user", "content": prompt}],
                 options={
-                    "temperature": 0.1,  # Low temperature for consistent output
-                    "num_predict": 2000   # Limit response length
+                    "temperature": 0.0,        # Faster than 0.1
+                    "top_p": 0.9,             # Focus on top tokens
+                    "num_predict": 1500,      # Reduced from 2000
+                    "num_thread": 8,          # Use more CPU threads
+                    "repeat_penalty": 1.0,    # Disable repeat penalty
+                    "top_k": 10,             # Limit vocabulary consideration
                 }
             )
             
-            # Extract JSON from response
-            llm_output = response['message']['content'].strip()
-            
-            # Clean the response (remove any markdown formatting)
-            if llm_output.startswith("```
-                llm_output = llm_output[7:-3]
-            elif llm_output.startswith("```"):
-                llm_output = llm_output[3:-3]
-            
+            # Extract and clean response using robust method
+            llm_output = response['message']['content']
+            clean_json = self.extract_json_from_response(llm_output)
+        
             # Parse JSON
-            parsed_data = json.loads(llm_output)
+            parsed_data = json.loads(clean_json)
             
             # Add metadata
             parsed_data["extraction_metadata"] = {
-                "method": "LLaMA_local",
+                "method": "LLaMA_Windows",
                 "model": self.model_name,
                 "success": True,
-                "text_length": len(resume_text)
+                "file_processed": os.path.basename(pdf_path),
+                "processing_time_seconds": round(time.time() - start_time, 2)
             }
             
             return parsed_data
             
         except json.JSONDecodeError as e:
             return {
-                "error": f"Failed to parse LLM response as JSON: {str(e)}",
-                "raw_response": llm_output if 'llm_output' in locals() else "No response"
+                "error": f"Failed to parse LLM response: {str(e)}",
+                "raw_response": llm_output if 'llm_output' in locals() else "No response",
+                "cleaned_json": clean_json if 'clean_json' in locals() else "N/A"
             }
         except Exception as e:
-            return {"error": f"Parsing failed: {str(e)}"}
+            return {"error": f"Processing failed: {str(e)}"}
     
-    def parse_to_json_file(self, pdf_path, output_path, job_title="Software Engineer"):
-        """Parse and save to JSON file"""
-        result = self.parse_resume(pdf_path, job_title)
-        
+    def save_results(self, result, output_path):
+        """Save results to JSON file"""
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(result, f, indent=2, ensure_ascii=False)
-        
-        print(f"Results saved to {output_path}")
-        return result
+        print(f"Results saved to: {output_path}")
 
-# Usage example
 def main():
-    parser = LLaMACVParser("llama3.2")
+    # Initialize parser with different models for speed testing
     
-    result = parser.parse_to_json_file(
-        "Sample1.pdf", 
-        "llama_parsed_cv.json", 
-        "Software Engineer"
-    )
+    # test 1: took 26.08 seconds
+    # parser = WindowsCVParser("llama3.2") 
     
-    print("Parsing completed!")
-    print(json.dumps(result, indent=2)[:500] + "...")
+    # test 2: took 8.02 seconds - FASTEST SO FAR
+    parser = WindowsCVParser("llama3.2:1b")  
+    
+    # test 3: took 30 seconds and returned empty json with error 
+    # parser = WindowsCVParser("gemma2:2b")
+    
+    # test 4: took 18.64 seconds
+    # parser = WindowsCVParser("qwen2.5:3b")
+    
+    # Process CV
+    cv_file = "F:/Cogntix/Unblit/AI/SampleCVs/Sample1.pdf" 
+    output_file = "llama_parsed_cv.json"
+    
+    if not os.path.exists(cv_file):
+        print(f"Error: CV file '{cv_file}' not found!")
+        print("Please update the cv_file variable with the correct path to your CV.")
+        return
+    
+    print("=== LLaMA CV Parser for Windows ===")
+    start_time = time.time()
+    result = parser.parse_cv(cv_file)
+    total_time = time.time() - start_time
+    
+    # Save results
+    parser.save_results(result, output_file)
+    
+    # Display summary
+    if "error" not in result:
+        print("\n=== PARSING SUMMARY ===")
+        print(f"Name: {result.get('name', 'Not found')}")
+        print(f"Email: {result.get('email', 'Not found')}")
+        print(f"Phone: {result.get('phone', 'Not found')}")
+        print(f"Skills: {len(result.get('skills', []))}")
+        print(f"Experience: {len(result.get('experience', []))} positions")
+        print(f"Education: {len(result.get('education', []))} entries")
+        print(f"Years Experience: {result.get('years_experience', 'Not found')}")
+        print(f"Total Processing Time: {total_time:.2f} seconds")
+    else:
+        print(f"Error: {result['error']}")
+        if 'raw_response' in result:
+            print(f"Raw Response: {result['raw_response'][:200]}...")
 
 if __name__ == "__main__":
     main()

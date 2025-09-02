@@ -1,0 +1,74 @@
+{
+  "personal_info": {
+    "name": "HARSHA SAMPATH",
+    "email": "harshasampathkg@gmail.com",
+    "phone": "+94(0) 76 97 87 765",
+    "address": "hapurudeniya, wellandura, kahawatta",
+    "linkedin": "linkedin profile",
+    "github": "github profile"
+  },
+  "professional_summary": "Experienced software engineer with over a year of experience in crafting, developing, and implementing dependable applications. Proficient in coding, debugging, and overseeing software systems in adherence to industry standards and best practices.",
+  "experience": [
+    {
+      "position": "Software Engineer",
+      "company": "Kapruka.com",
+      "duration": "Jan 2024 - July 2024",
+      "description": "Developed and maintained cross-platform mobile applications using Flutter, ensuring smooth functionality on both Android and iOS platforms. Utilized native Android functionalities to improve the performance and user experience of the applications."
+    }
+  ],
+  "education": [
+    {
+      "degree": "Bachelor of Information Technology",
+      "institution": "University of Moratuwa",
+      "year": "2024",
+      "gpa": "3.34"
+    }
+  ],
+  "skills": {
+    "technical_skills": [
+      "fluter",
+      "Android"
+    ],
+    "programming_languages": [
+      "React",
+      "Angular",
+      "Spring",
+      "Node",
+      "MySql",
+      "MsSql",
+      "PostgreySql"
+    ],
+    "frameworks_tools": [
+      "Flutter"
+    ]
+  },
+  "projects": [
+    {
+      "name": "Deep Learning Approaches for Detecting Common Skin Diseases Using Digital Image Processing",
+      "description": "Demonstrated expertise in machine learning and image analysis by utilizing deep learning models to automate skin disease detection via digital imaging in a collaborative research endeavor.",
+      "technologies": [
+        "React",
+        "Python",
+        "Colab",
+        "NodeJs"
+      ]
+    }
+  ],
+  "years_of_experience": "1",
+  "certificates": [
+    {
+      "name": "Semi-Finalist of ThinkWave",
+      "organization": "AIESEC of University of Moratuwa"
+    },
+    {
+      "name": "Participated in Hackermoral (Coding competition)",
+      "organization": "INTECS, IT Faculty, University of Moratuwa"
+    }
+  ],
+  "extraction_metadata": {
+    "method": "LLaMA_Windows",
+    "model": "llama3.2:1b",
+    "success": true,
+    "file_processed": "Sample1.pdf"
+  }
+}
